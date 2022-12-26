@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "helpers/axios";
 
 const ImagesList = () => {
   const [images, setImages] = useState([]);
@@ -8,13 +8,10 @@ const ImagesList = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios
-      .get(`https://picsum.photos/v2/list?page=${activePage}&limit=10`)
-      .then((response) => response.data)
-      .then((data) => {
-        setImages((allImages) => [...allImages, ...data]);
-        setLoading(false);
-      });
+    axios.get(`/v2/list?page=${activePage}&limit=10`).then((data) => {
+      setImages((allImages) => [...allImages, ...data]);
+      setLoading(false);
+    });
   }, [activePage]);
 
   const handleShowMore = () => {
