@@ -14,7 +14,9 @@ module.exports = {
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
     "import/prefer-default-export": "off",
-    "react/function-component-definition": "off"
+    "react/function-component-definition": "off",
+    "camelcase": "off",
+    // "no-shadow": ["error", { "builtinGlobals": true, "hoist": "never", "allow": ["done"], "ignoreOnInitialization": true }]
   },
   plugins: ["prettier"],
   ignorePatterns: [".eslintrc.js"],
