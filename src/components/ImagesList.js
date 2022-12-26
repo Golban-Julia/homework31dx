@@ -8,10 +8,12 @@ const ImagesList = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`/v2/list?page=${activePage}&limit=10`).then((data) => {
-      setImages((allImages) => [...allImages, ...data]);
-      setLoading(false);
-    });
+    axios
+      .get("v2/list", { params: { page: `${activePage}`, limit: 10 } })
+      .then((data) => {
+        setImages((allImages) => [...allImages, ...data]);
+        setLoading(false);
+      });
   }, [activePage]);
 
   const handleShowMore = () => {
